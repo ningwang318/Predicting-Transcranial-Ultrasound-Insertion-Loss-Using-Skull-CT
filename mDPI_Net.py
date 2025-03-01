@@ -88,17 +88,17 @@ class FeatureBranch(nn.Module):
     def __init__(self):
         super(FeatureBranch, self).__init__()
 
-        self.conv1 = nn.Conv2d(6, 16, kernel_size=5, padding=1)  # 调整为16通道
+        self.conv1 = nn.Conv2d(6, 16, kernel_size=5, padding=1)  
         self.bn1 = nn.BatchNorm2d(16)
         self.relu1 = nn.ReLU(inplace=False)
         self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
 
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=0)  # 调整为32通道
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=0) 
         self.bn2 = nn.BatchNorm2d(32)
         self.relu2 = nn.ReLU(inplace=False)
         self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
 
-        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, padding=0)  # 调整为64通道
+        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, padding=0)  
         self.bn3 = nn.BatchNorm2d(64)
         self.relu3 = nn.ReLU(inplace=False)
         self.pool3 = nn.MaxPool2d(kernel_size=2, stride=2)
@@ -148,8 +148,8 @@ class ExInceptionNet(nn.Module):
         self.feature_branch = FeatureBranch()
 
         self.fc1 = nn.Linear(3, 256)
-        self.bn1 = nn.BatchNorm1d(256)  # BatchNorm1d 适用于全连接层
-        self.dropout1 = nn.Dropout(0.5)  # Dropout层，概率为0.5
+        self.bn1 = nn.BatchNorm1d(256)  
+        self.dropout1 = nn.Dropout(0.5) 
         self.fc2 = nn.Linear(256, 3)
 
         self.alpha = nn.Parameter()
@@ -167,28 +167,16 @@ class ExInceptionNet(nn.Module):
 
 class CustomDataset(Dataset):
     def __init__(self, X, X_fts, y):
-        self.X = X  # 输入数据1
-        self.X_fts = X_fts  # 输入数据2
-        self.y = y  # 标签
+        self.X = X  
+        self.X_fts = X_fts  
+        self.y = y  
 
     def __len__(self):
         return len(self.X)
 
     def __getitem__(self, idx):
-        x1 = self.X[idx]  # 获取第idx个样本的输入1
-        x2 = self.X_fts[idx]  # 获取第idx个样本的输入2
-        label = self.y[idx]  # 获取第idx个样本的标签
-        return x1, x2, label  # 返回两个输入和标签
+        x1 = self.X[idx]  
+        x2 = self.X_fts[idx]  
+        label = self.y[idx]  
+        return x1, x2, label  
 
-# class CustomDataset_1(Dataset):
-#     def __init__(self, X, y):
-#         self.X = X  # 输入数据1
-#         self.y = y  # 标签
-#
-#     def __len__(self):
-#         return len(self.X)
-#
-#     def __getitem__(self, idx):
-#         x = self.X[idx]  # 获取第idx个样本的输入1
-#         label = self.y[idx]  # 获取第idx个样本的标签
-#         return x, label  # 返回两个输入和标签
