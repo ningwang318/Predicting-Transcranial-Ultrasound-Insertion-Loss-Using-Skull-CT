@@ -28,8 +28,6 @@ def set_seed(seed=316):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-
-# 在代码开始时调用设置种子函数
 set_seed(316)
 
 
@@ -73,35 +71,13 @@ train_loader = DataLoader(train_dataset, batch_size=3, shuffle=True, generator =
 val_loader = DataLoader(val_dataset, batch_size=3, shuffle=False)
 test_loader = DataLoader(test_dataset, batch_size=3, shuffle=False)
 
-print("训练集样本索引:", train_dataset.indices)
-print("验证集样本索引:", val_dataset.indices)
-print("测试集样本索引:", test_dataset.indices)
+print("train index:", train_dataset.indices)
+print("valid index:", val_dataset.indices)
+print("test index:", test_dataset.indices)
 
 set_seed(316)
-# Model, Loss, Optimizer Setup
-#model = Inception3DCNN()
-
-
-# model = Light3DCNN()
-
-
-#model = InceptionNet()
 
 model = ExInceptionNet()
-
-
-# model_params = {
-#     'n_input_channels': 1,
-#     'n_classes': 3,
-#     'conv1_t_size': 3,
-#     'conv1_t_stride': 1,
-#     'no_max_pool': False,
-#     'shortcut_type': 'B',
-#     'widen_factor': 1.0
-# }
-#
-# model = generate_model(34, **model_params)
-
 
 ParameterCounter().count_parameters(model)
 criterion = nn.L1Loss()
