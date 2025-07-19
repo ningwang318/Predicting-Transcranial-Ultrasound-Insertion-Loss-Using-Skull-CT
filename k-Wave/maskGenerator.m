@@ -20,10 +20,10 @@ function [v,rho,alpha_coeff] = maskGenerator(v_test, rho_test, alpha_coeff_input
     alpha_coeff = padarray(alpha_coeff, [padBack, 0, 0], 0, 'post'); 
 
     
-    % % 生成 skullMask
+    % % generate skullMask
     % skullMask = false(size(paddedMatrix)); 
     % skullMask(paddedMatrix > threshold) = true; 
-    % % 初始化 brainMask
+    % % initialize brainMask
     % brainMask = false(size(skullMask)); 
 
     % for i = 1:size(skullMask, 2) 
