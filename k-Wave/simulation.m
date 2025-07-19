@@ -22,7 +22,7 @@ upsampling_rate = 8;       % density of integration points relative to grid
 
 folderPath ='E:\Ning\Simulation\Simulation\skull-ct';
 fileList = dir(fullfile(folderPath, '*.mat')); 
-fprintf('找到 %d 个 .mat 文件：\n', length(fileList));
+fprintf('find %d  .mat file：\n', length(fileList));
 for i = 1:length(fileList)
     fprintf('%d: %s\n', i, fileList(i).name);
 end
