@@ -31,7 +31,6 @@ def set_seed(seed=316):
 set_seed(316)
 
 
-os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 # Data Preparation
 data_path = 'E:\\trans_effi\\data\\seg_ct_s_normal_3_2.npz'
