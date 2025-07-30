@@ -107,7 +107,7 @@ class FeatureBranch(nn.Module):
         self.fc1 = nn.Linear(64 * 15 * 15, 128)
         self.fc2 = nn.Linear(128, 3)
 
-        # Dropout层
+
         self.dropout = nn.Dropout(0.5)
 
     def forward(self, x):
@@ -130,7 +130,7 @@ class FeatureBranch(nn.Module):
         x = self.pool3(x)
 
         x = x.view(x.size(0), -1)
-        # 全连接层 + Dropout
+
         x = F.relu(self.fc1(x))
         x = self.dropout(x)
         x = self.fc2(x)
