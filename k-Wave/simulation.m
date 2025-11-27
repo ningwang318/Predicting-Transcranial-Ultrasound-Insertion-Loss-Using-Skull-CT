@@ -108,6 +108,7 @@ for fileIdx = 1:length(fileList)
         % Save the result for each frequency
         [~, skullFileName, ~] = fileparts(fileList(fileIdx).name);
         save(['E:\Ning\Simulation\Simulation\result\amp_result_' skullFileName '_f0_' num2str(source_f0) '.mat'], 'amp');
-        disp(['仿真完成，频率 f0 = ' num2str(source_f0) ' Hz，文件 ' fileList(fileIdx).name '。结果已保存。']);
+        disp(['simulation complete，frequency f0 = ' num2str(source_f0) ' Hz，file ' fileList(fileIdx).name 'results saved']);
     end
 end
+
