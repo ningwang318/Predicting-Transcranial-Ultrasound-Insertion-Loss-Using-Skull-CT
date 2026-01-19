@@ -15,7 +15,7 @@ horizenal_size  = 0.06;
 ppw             = 6;        % number of points per wavelength
 t_end           = 1.2e-4;    % total compute time [s] (this must be long enough to reach steady state)
 record_periods  = 1;        % number of periods to record
-cfl             = 0.06;     % CFL number
+cfl             = 0.05;     % CFL number
 source_x_offset = 5;      % grid points to offset the source
 bli_tolerance   = 0.1;     % tolerance for truncation of the off-grid source points
 upsampling_rate = 8;       % density of integration points relative to grid
@@ -111,4 +111,5 @@ for fileIdx = 1:length(fileList)
         disp(['simulation complete，frequency f0 = ' num2str(source_f0) ' Hz，file ' fileList(fileIdx).name 'results saved']);
     end
 end
+
 
