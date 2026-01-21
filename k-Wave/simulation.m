@@ -46,7 +46,7 @@ for fileIdx = 1:length(fileList)
         
         % Compute points per temporal period
         PPP = round(ppw / cfl);
-        dt = cfl*dx/vmax; % Time spacing
+        dt = 1 / (PPP * source_f0); % Time spacing
         Nt = round(t_end / dt);
         kgrid.setTime(Nt, dt);
         
@@ -111,6 +111,7 @@ for fileIdx = 1:length(fileList)
         disp(['simulation complete，frequency f0 = ' num2str(source_f0) ' Hz，file ' fileList(fileIdx).name 'results saved']);
     end
 end
+
 
 
 
